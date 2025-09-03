@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# Output folders (ignored)
+outputs/
+figs/
+tables/
+inputs/
+*.tif
+*.7z
