@@ -3,18 +3,10 @@ This repository contains scripts and outputs for the functional resilience and t
 The workflow integrates functional group (FG) binary matrices, temporal beta diversity (TBI), body-mass discontinuity analyses, redundancy metrics and Non-Metric Multidimensional Scaling (NMDS) analyses.
 
 📂 Repository Structure
-
-inputs/
-
-tables/
-Processed tabular outputs (e.g., FG binary matrices, log mass matrices).
-
-outputs/
-Intermediate outputs (TBI results, discontinuities, redundancy metrics, NMDS).
-
-scripts/
-All R scripts used in the workflow (see below).
-
+inputs/    # Raw or input data
+tables/    # Processed tabular outputs (e.g., FG binary matrices, log mass matrices)
+outputs/   # Intermediate outputs (TBI results, discontinuities, redundancy metrics, NMDS)
+scripts/   # All R scripts used in the workflow
 scripts/
  ├── 01_fg_tbi/
  │    ├── 01_build_fg_binary_matrices.R
@@ -36,3 +28,21 @@ scripts/
  └── 05_richness/
       ├── 13_plot_fg_richness_maps.R
       └── 14_plot_delta_richness_maps.R
+
+flowchart TD
+  A[01 Build FG matrices] --> B[02 Calculate FG TBI]
+  B --> C[03 Generate TBI rasters]
+  C --> D[04 Plot FG TBI changes]
+  D --> E[05 Summarize FG TBI changes]
+  E --> F[06 Build log-mass matrices]
+  F --> G[07 Calculate body-mass discontinuities]
+  G --> H[08 Plot body-mass aggregations]
+  H --> I[09 Calculate resilience metrics]
+  I --> J[10 Plot resilience metrics]
+  J --> K[11 Baseline resilience maps]
+  I --> L[12 Run NMDS 5 regions]
+  L --> M[15 Plot NMDS graphs]
+  I --> N[13 FG richness maps]
+  N --> O[14 Delta richness maps]
+  I --> P[16 FG persistence]
+
